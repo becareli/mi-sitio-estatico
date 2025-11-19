@@ -3,57 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo de Hosting - Patricio B.E.</title>
+    <title>Demo Hosting | Patricio B.E.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Variables y Reset Básico */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #28a745;
+            --background-color: #f8f9fa;
+            --text-color: #343a40;
+            --shadow-light: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            padding: 50px;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
         }
+        /* Contenedor Principal */
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            max-width: 90%;
+            width: 600px;
+            text-align: center;
         }
+        /* Encabezado */
         h1 {
-            color: #007bff;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: var(--text-color);
+            font-weight: 300;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        /* Mensaje de Estado */
+        .status-badge {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        /* Contenido y Enlaces */
+        p {
+            font-size: 1em;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        .status {
-            margin-top: 30px;
-            padding: 10px;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            border-radius: 5px;
+        .repo-link {
             display: inline-block;
+            margin-top: 15px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .repo-link:hover {
+            color: #0056b3;
+        }
+        .project-icon {
+            font-size: 3em;
+            color: #ffc107;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>¡Hola! Este es un Proyecto Estático Alojaodo en GitHub Pages.</h1>
+        <div class="project-icon">
+            ⚙️
+        </div>
+        <h1>Proyecto Estático Desplegado</h1>
+        <h2>Demostración de Alojamiento en la Nube (GitHub Pages)</h2>
+        
         <p>
-            Este sitio es una prueba simple para demostrar mi habilidad en el despliegue de sitios estáticos 
-            utilizando servicios de hosting cloud (requisito del Portafolio Técnico).
+            Este sitio web es una prueba simple y limpia que demuestra mi dominio en el proceso de 
+            **configuración, despliegue y alojamiento** de contenido estático utilizando un servicio cloud gratuito. 
         </p>
-        <p class="status">
-            Estado: Publicación exitosa y enlazada al README principal.
-        </p>
+        
+        <div class="status-badge">
+            Publicación exitosa: EN VIVO
+        </div>
+
         <p>
-            👉 El código de este sitio se encuentra en el repositorio 
-            **mi-sitio-estatico**.
+            Esta página cumple con el requisito de "Alojar un proyecto en un servicio cloud" [cite: 25] y su enlace ya ha sido 
+            compartido en mi portafolio principal de GitHub[cite: 29].
         </p>
+
+        <a href="https://github.com/becareli/mi-sitio-estatico" target="_blank" class="repo-link">
+            🔗 Ver el código de este repositorio en GitHub
+        </a>
     </div>
 </body>
 </html>
