@@ -13,6 +13,8 @@ Este es el proyecto que se aloja en **GitHub Pages** para cumplir con el requisi
 * **Portafolio Principal (Repositorio `Portafolio`):**
     [Regresar al Portafolio Central](https://github.com/becareli/Portafolio)
 
+  Video Técnico en YouTube: Análisis del flujo de despliegue (https://www.youtube.com/watch?v=WJW_24xIzAw)  — explicación detallada del proceso de versionado con Git, configuración del repositorio, y publicación mediante GitHub Pages.
+
 ## 🛠️ Tecnologías Utilizadas
 
 * **HTML5:** Estructura del contenido.
