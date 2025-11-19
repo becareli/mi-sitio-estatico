@@ -3,112 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Hosting | Patricio B.E.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Patricio Becar Elissegaray | Portafolio Técnico</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
-        /* Variables y Reset Básico */
         :root {
-            --primary-color: #007bff;
-            --secondary-color: #28a745;
-            --background-color: #f8f9fa;
-            --text-color: #343a40;
-            --shadow-light: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            --primary-color: #0077b5; /* Azul LinkedIn */
+            --secondary-color: #333333; /* Gris Oscuro */
+            --light-bg: #f8f9fa; /* Fondo Suave */
+            --text-color: #495057;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background-color);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
             color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo del Contenedor Principal */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Sección de Encabezado/Presentación */
+        .header {
+            display: flex;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic-placeholder {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        /* Contenedor Principal */
-        .container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            max-width: 90%;
-            width: 600px;
-            text-align: center;
-        }
-        /* Encabezado */
-        h1 {
-            color: var(--primary-color);
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 2.2em;
-        }
-        h2 {
-            color: var(--text-color);
-            font-weight: 300;
-            margin-bottom: 30px;
-            font-size: 1.1em;
-        }
-        /* Mensaje de Estado */
-        .status-badge {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 20px 0;
-            background-color: var(--secondary-color);
             color: white;
-            border-radius: 5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 3em;
+            margin-right: 30px;
+            /* Si tienes una URL de imagen, reemplaza el background-color y font-size por: 
+            background-image: url('[URL_DE_TU_FOTO]'); 
+            background-size: cover; */
         }
-        /* Contenido y Enlaces */
-        p {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
+
+        .intro h1 {
+            color: var(--secondary-color);
+            font-weight: 800;
+            margin-bottom: 5px;
+            font-size: 2.5em;
         }
-        .repo-link {
-            display: inline-block;
-            margin-top: 15px;
+
+        .intro p {
+            font-weight: 600;
             color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
+            margin-top: 0;
+        }
+
+        /* Botones de Redes Sociales */
+        .social-links a {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            margin-right: 15px;
             transition: color 0.3s;
         }
-        .repo-link:hover {
-            color: #0056b3;
+
+        .social-links a:hover {
+            color: var(--primary-color);
         }
-        .project-icon {
-            font-size: 3em;
-            color: #ffc107;
+
+        /* Estilos de las Secciones */
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.8em;
+        }
+
+        /* Estilos de Proyectos */
+        .project-card {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
             margin-bottom: 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        .project-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Estilos de Tecnologías */
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-list li {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="project-icon">
-            ⚙️
-        </div>
-        <h1>Proyecto Estático Desplegado</h1>
-        <h2>Demostración de Alojamiento en la Nube (GitHub Pages)</h2>
         
-        <p>
-            Este sitio web es una prueba simple y limpia que demuestra mi dominio en el proceso de 
-            **configuración, despliegue y alojamiento** de contenido estático utilizando un servicio cloud gratuito. 
-        </p>
-        
-        <div class="status-badge">
-            Publicación exitosa: EN VIVO
+        <div class="header">
+            <div class="profile-pic-placeholder">PB</div> 
+            
+            <div class="intro">
+                <h1>Patricio Becar Elissegaray</h1>
+                <p>Desarrollador Full-Stack | Especialista en [Tu Tecnología Principal]</p>
+                <div class="social-links">
+                    <a href="[TU ENLACE DE LINKEDIN]" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/becareli" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:[TU CORREO]" title="Correo Electrónico"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
 
-        <p>
-            Esta página cumple con el requisito de "Alojar un proyecto en un servicio cloud" [cite: 25] y su enlace ya ha sido 
-            compartido en mi portafolio principal de GitHub[cite: 29].
-        </p>
+        <div class="section">
+            <h2><i class="fas fa-user-circle"></i> Perfil</h2>
+            <p>
+                Soy un profesional apasionado por el desarrollo de soluciones digitales eficientes y escalables. Me especializo en [Menciona 1-2 áreas clave, ej. front-end con React y bases de datos NoSQL]. Busco constantemente optimizar procesos y aplicar las mejores prácticas para generar valor en cada proyecto.
+            </p>
+            <p>
+                **Habilidad Demostrada:** Este sitio web funciona gracias a mi dominio en el despliegue de contenido estático utilizando **GitHub Pages**.
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-code"></i> Proyectos Destacados</h2>
+            
+            <div class="project-card">
+                <h3>Mi Mini-Portafolio (Este Sitio)</h3>
+                <p>Demostración de habilidad de hosting y despliegue en la nube.</p>
+                <a href="https://github.com/becareli/mi-sitio-estatico" target="_blank">Ver Código en GitHub <i class="fas fa-arrow-right"></i></a>
+            </div>
 
-        <a href="https://github.com/becareli/mi-sitio-estatico" target="_blank" class="repo-link">
-            🔗 Ver el código de este repositorio en GitHub
-        </a>
+            <div class="project-card">
+                <h3>[Nombre de tu Otro Proyecto]</h3>
+                <p>[Descripción breve de tu otro proyecto subido al repositorio principal].</p>
+                <a href="https://github.com/becareli/Portafolio" target="_blank">Ver Detalles en Portafolio Principal <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            </div>
+
+        <div class="section">
+            <h2><i class="fas fa-tools"></i> Tecnologías Clave</h2>
+            <ul class="tech-list">
+                <li><i class="fab fa-html5"></i> HTML5</li>
+                <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                <li><i class="fab fa-js"></i> JavaScript</li>
+                <li><i class="fab fa-python"></i> Python</li>
+                <li><i class="fab fa-react"></i> React (Ejemplo)</li>
+                <li><i class="fab fa-figma"></i> Figma (Ejemplo)</li>
+            </ul>
+        </div>
+        
     </div>
 </body>
 </html>
