@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patricio Becar Elissegaray | Desarrollador Full-Stack</title>
+    <title>Patricio Becar Elissegaray | Portafolio Full-Stack</title>
+    <meta name="description" content="Portafolio profesional de Patricio Becar - Arquitecto, Desarrollador Full-Stack especializado en Django, Python y soluciones empresariales.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --primary: #1e40af;
             --primary-light: #3b82f6;
@@ -18,17 +17,36 @@
             --accent: #0ea5e9;
             --dark: #1f2937;
             --text-light: #6b7280;
+            --light-bg: #f0f9ff;
+            --white: #ffffff;
             --success: #10b981;
+            --gradient: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             color: var(--dark);
-            background: #ffffff;
+            background: var(--light-bg);
+            line-height: 1.6;
         }
 
-        /* Navbar */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== NAVBAR ===== */
         nav {
             background: white;
             padding: 1.2rem 2rem;
@@ -39,7 +57,7 @@
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -49,7 +67,10 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-decoration: none;
         }
 
@@ -64,234 +85,167 @@
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
-            font-size: 0.95rem;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover {
             color: var(--primary);
         }
 
-        .cta-btn {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .nav-cta {
+            background: var(--gradient);
             color: white;
-            padding: 0.65rem 1.8rem;
+            padding: 0.7rem 1.8rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(to right, #e0f2fe, #f0f9ff);
-            padding: 4rem 2rem;
-            min-height: 100vh;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+            gap: 0.5rem;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(15, 165, 233, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -100px;
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
         }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(30, 64, 175, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -150px;
-            left: -50px;
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e8f9f5 100%);
+            padding: 5rem 2rem;
         }
 
         .hero-container {
-            max-width: 1400px;
-            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 4rem;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: var(--dark);
         }
 
-        .hero-content .name {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .hero-content .name-highlight {
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero-content .subtitle {
-            font-size: 1.15rem;
+        .hero-content p {
+            font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 1.2rem;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        .hero-content .description {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: var(--gradient);
             color: white;
-            padding: 0.95rem 2.2rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
-            display: inline-block;
-            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(30, 64, 175, 0.35);
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
         }
 
         .btn-secondary {
             background: white;
             color: var(--primary);
-            padding: 0.95rem 2.2rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--primary);
             cursor: pointer;
-            display: inline-block;
-            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .btn-secondary:hover {
             background: var(--primary);
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(30, 64, 175, 0.25);
         }
 
-        .stats {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            min-width: 50px;
-        }
-
-        .stat-label {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .stat-label strong {
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .stat-label span {
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-
-        /* Hero Image */
         .hero-image {
-            position: relative;
-            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(30, 64, 175, 0.15);
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: 0 25px 50px rgba(30, 64, 175, 0.25);
+            border: 3px solid var(--white);
         }
 
-        .hero-image img {
+        .profile-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
 
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-            animation: shine 3s infinite;
-            pointer-events: none;
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .stat-item {
+            text-align: center;
         }
 
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* About Section */
-        .about {
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects {
             background: white;
             padding: 6rem 2rem;
         }
@@ -299,9 +253,9 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
             text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            margin-bottom: 1rem;
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -317,56 +271,12 @@
             margin-right: auto;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .about-text h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-item {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(15, 165, 233, 0.05));
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .skill-item strong {
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-
-        /* Projects Section */
-        .projects {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e8f9f5 100%);
-            padding: 6rem 2rem;
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            margin-top: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .project-card {
@@ -377,35 +287,38 @@
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
+            border-top: 5px solid var(--primary);
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.2);
         }
 
         .project-image {
             width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            height: 220px;
+            background: var(--gradient);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3rem;
             color: white;
-            font-size: 2.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .project-content {
-            padding: 1.8rem;
+            padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .project-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
             color: var(--primary);
+            margin-bottom: 0.8rem;
             font-weight: 700;
         }
 
@@ -413,35 +326,35 @@
             color: var(--text-light);
             margin-bottom: 1rem;
             flex-grow: 1;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .tech-tag {
             background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(15, 165, 233, 0.1));
             color: var(--primary);
-            padding: 0.3rem 0.7rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             border: 1px solid rgba(30, 64, 175, 0.2);
         }
 
         .project-links {
             display: flex;
-            gap: 0.8rem;
+            gap: 1rem;
+            margin-top: auto;
         }
 
-        .project-link {
+        .project-links a {
             flex: 1;
-            padding: 0.6rem;
+            padding: 0.8rem;
             text-align: center;
             border-radius: 8px;
             text-decoration: none;
@@ -452,14 +365,14 @@
             font-size: 0.9rem;
         }
 
-        .project-link:hover {
+        .project-links a:hover {
             background: var(--primary);
             color: white;
         }
 
-        /* Stack Section */
+        /* ===== STACK SECTION ===== */
         .stack {
-            background: white;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e8f9f5 100%);
             padding: 6rem 2rem;
         }
 
@@ -467,14 +380,16 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .stack-category {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(15, 165, 233, 0.05));
-            padding: 1.8rem;
+            background: white;
+            padding: 2rem;
             border-radius: 15px;
             border-top: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.08);
             transition: transform 0.3s;
         }
 
@@ -484,8 +399,8 @@
 
         .stack-category h3 {
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
 
@@ -494,24 +409,29 @@
         }
 
         .stack-category li {
-            padding: 0.5rem 0;
+            padding: 0.8rem 0;
             color: var(--text-light);
             display: flex;
             align-items: center;
             font-size: 0.95rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .stack-category li:last-child {
+            border-bottom: none;
         }
 
         .stack-category li::before {
             content: '✓';
             color: var(--success);
             font-weight: bold;
-            margin-right: 0.8rem;
+            margin-right: 1rem;
             font-size: 1.1rem;
         }
 
-        /* Contact Section */
+        /* ===== CONTACT SECTION ===== */
         .contact {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            background: var(--gradient);
             color: white;
             padding: 5rem 2rem;
             text-align: center;
@@ -563,7 +483,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -571,7 +491,7 @@
             text-decoration: none;
             font-size: 1.3rem;
             transition: all 0.3s;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
         .social-icon:hover {
@@ -580,7 +500,7 @@
             transform: translateY(-5px);
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background: #111827;
             color: #d1d5db;
@@ -594,34 +514,15 @@
             text-decoration: none;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-image {
-                height: 400px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
+                display: none;
             }
 
-            .hero {
-                padding: 2rem 1rem;
-                min-height: auto;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .hero-buttons {
@@ -630,6 +531,7 @@
 
             .btn-primary, .btn-secondary {
                 width: 100%;
+                justify-content: center;
             }
 
             .stats {
@@ -637,235 +539,304 @@
                 gap: 1rem;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .project-links {
+                flex-direction: column;
+            }
+
+            .project-links a {
+                width: 100%;
             }
 
             .section-title {
                 font-size: 1.8rem;
             }
-
-            .hero-image {
-                height: 300px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- NAVBAR -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">PB Dev</a>
+            <a href="#" class="logo">Becareli IA Services</a>
             <ul class="nav-links">
-                <li><a href="#sobre" class="active">Sobre Mí</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#stack">Stack</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="https://drive.google.com/file/d/1x0pZLWGLtadGafnBaIxtQ-isFKNkUX_0/view?usp=sharing" target="_blank">Curriculum Vitae</a></li>
             </ul>
-            <a href="#contacto" class="cta-btn">Conectar</a>
+            <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank" class="nav-cta">
+                <i class="fab fa-linkedin"></i> Conectar
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Hola, soy <span class="name">Patricio Becar<br>Elissegaray</span></h1>
-                <p class="subtitle">Desarrollador Full-Stack especializado en <strong>Django</strong> y soluciones empresariales</p>
-                <p class="description">Creo aplicaciones web profesionales, escalables y listas para producción. Con experiencia en Python, Django, sistemas de gestión complejos y plataformas e-commerce.</p>
+                <h1>Hola, soy <span class="name-highlight">Patricio Becar<br>Elissegaray</span></h1>
+                <p><strong>Arquitecto, Magíster en Gestión y Desarrollador Full-Stack especializado en Django</strong></p>
+                <p>Fusionando diseño, gestión y tecnología para crear soluciones digitales innovadoras y escalables</p>
                 
                 <div class="hero-buttons">
-                    <a href="#proyectos" class="btn-primary">Ver Proyectos →</a>
-                    <a href="#contacto" class="btn-secondary">Contactar</a>
+                    <a href="#proyectos" class="btn-primary">
+                        <i class="fas fa-arrow-right"></i> Ver Proyectos
+                    </a>
+                    <a href="https://drive.google.com/file/d/1x0pZLWGLtadGafnBaIxtQ-isFKNkUX_0/view?usp=sharing" target="_blank" class="btn-secondary">
+                        <i class="fas fa-file-pdf"></i> Descargar CV
+                    </a>
                 </div>
 
                 <div class="stats">
                     <div class="stat-item">
                         <div class="stat-number">5+</div>
-                        <div class="stat-label">
-                            <strong>Proyectos</strong>
-                            <span>Completos</span>
-                        </div>
+                        <div class="stat-label">Proyectos</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">100%</div>
-                        <div class="stat-label">
-                            <strong>Documentados</strong>
-                            <span>En GitHub</span>
-                        </div>
+                        <div class="stat-label">Documentados</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">10+</div>
-                        <div class="stat-label">
-                            <strong>Tecnologías</strong>
-                            <span>Dominadas</span>
-                        </div>
+                        <div class="stat-label">Tecnologías</div>
                     </div>
                 </div>
             </div>
 
             <div class="hero-image">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
-                    <defs>
-                        <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
-                        </linearGradient>
-                        <filter id="shadow">
-                            <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.3"/>
-                        </filter>
-                    </defs>
-                    
-                    <!-- Fondo -->
-                    <rect width="800" height="500" fill="url(#heroGrad)"/>
-                    
-                    <!-- Laptop ilustrado -->
-                    <g filter="url(#shadow)">
-                        <!-- Monitor -->
-                        <rect x="150" y="80" width="500" height="280" rx="20" fill="#ffffff" stroke="#3b82f6" stroke-width="3"/>
-                        
-                        <!-- Pantalla -->
-                        <rect x="170" y="100" width="460" height="240" rx="15" fill="#f0f9ff"/>
-                        
-                        <!-- Contenido de pantalla -->
-                        <circle cx="400" cy="150" r="40" fill="#3b82f6" opacity="0.8"/>
-                        <rect x="200" y="200" width="200" height="15" rx="7" fill="#3b82f6" opacity="0.6"/>
-                        <rect x="200" y="225" width="150" height="15" rx="7" fill="#3b82f6" opacity="0.4"/>
-                        
-                        <!-- Bezels -->
-                        <rect x="150" y="370" width="500" height="25" rx="5" fill="#1f2937"/>
-                        
-                        <!-- Soporte -->
-                        <rect x="380" y="395" width="40" height="60" rx="5" fill="#374151"/>
-                        <ellipse cx="400" cy="455" rx="120" ry="20" fill="#1f2937" opacity="0.3"/>
-                    </g>
-                    
-                    <!-- Elementos flotantes -->
-                    <g opacity="0.3">
-                        <circle cx="120" cy="100" r="30" fill="#ffffff"/>
-                        <circle cx="700" cy="150" r="40" fill="#ffffff"/>
-                        <circle cx="80" cy="400" r="25" fill="#ffffff"/>
-                        <circle cx="730" cy="380" r="35" fill="#ffffff"/>
-                    </g>
-                    
-                    <!-- Código ilustrado -->
-                    <g font-family="monospace" font-size="14" fill="#10b981" opacity="0.4">
-                        <text x="50" y="480">&lt; Full-Stack Developer /&gt;</text>
-                    </g>
-                </svg>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="sobre">
-        <div class="container">
-            <h2 class="section-title">Sobre Mí</h2>
-            <p class="section-subtitle">Desarrollador con experiencia en tecnologías modernas y prácticas ágiles</p>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Mi Experiencia</h3>
-                    <p>Soy desarrollador full-stack con especialización en <strong>Python y Django</strong>. Tengo experiencia en crear aplicaciones web empresariales, sistemas de gestión complejos y plataformas e-commerce.</p>
-                    <p>Mi enfoque es desarrollar soluciones que sean no solo funcionales, sino también escalables, bien documentadas y mantenibles a largo plazo.</p>
-                    <p>Creo en las buenas prácticas de código, la arquitectura limpia y la comunicación técnica clara.</p>
-                </div>
-                <div class="about-text">
-                    <h3>Mi Filosofía</h3>
-                    <div class="skills">
-                        <div class="skill-item">
-                            <strong>✨ Código Limpio</strong> - Legible y mantenible
-                        </div>
-                        <div class="skill-item">
-                            <strong>🎯 Soluciones Prácticas</strong> - Problemas reales
-                        </div>
-                        <div class="skill-item">
-                            <strong>📚 Documentación</strong> - Clara y completa
-                        </div>
-                        <div class="skill-item">
-                            <strong>🚀 Escalabilidad</strong> - Diseño para crecer
-                        </div>
-                        <div class="skill-item">
-                            <strong>💡 Innovación</strong> - Siempre aprendiendo
-                        </div>
-                        <div class="skill-item">
-                            <strong>🤝 Colaboración</strong> - Trabajo en equipo
-                        </div>
-                    </div>
+                <div class="profile-img">
+                    <img src="https://avatars.githubusercontent.com/becareli" alt="Patricio Becar Elissegaray" onerror="this.src='https://ui-avatars.com/api/?name=Patricio+Becar&size=400&background=1e40af&color=fff&bold=true'" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- PROJECTS SECTION -->
     <section class="projects" id="proyectos">
         <div class="container">
-            <h2 class="section-title">Mis Proyectos</h2>
-            <p class="section-subtitle">Una selección de mis trabajos más destacados</p>
+            <h2 class="section-title">Mis Proyectos Destacados</h2>
+            <p class="section-subtitle">Soluciones completas que demuestran mis habilidades en desarrollo full-stack</p>
             
             <div class="projects-grid">
+                <!-- Proyecto 1 -->
                 <div class="project-card">
                     <div class="project-image">🛒</div>
                     <div class="project-content">
                         <h3>Tienda de Buceo - E-commerce</h3>
-                        <p>Plataforma e-commerce completa con catálogo de productos, carrito de compras, gestión de órdenes y panel administrativo personalizado.</p>
+                        <p>Plataforma e-commerce completa con catálogo de productos, carrito dinámico, gestión de órdenes y panel administrativo personalizado.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Django</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">CRUD</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/becareli/Sistema-de-Gestion-de-Productos-Django" class="project-link" target="_blank">GitHub</a>
+                            <a href="https://github.com/becareli/Sistema-de-Gestion-de-Productos-Django" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://www.youtube.com/watch?v=WJW_24xIzAw" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Proyecto 2 -->
                 <div class="project-card">
                     <div class="project-image">⚙️</div>
                     <div class="project-content">
                         <h3>Django-SaaS-Gestión</h3>
-                        <p>Sistema empresarial con arquitectura avanzada, relaciones complejas entre modelos, validaciones robustas y admin personalizado.</p>
+                        <p>Sistema empresarial con arquitectura MVC avanzada, relaciones complejas, validaciones robustas y admin personalizado.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Django</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">MVC</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/becareli/django-saas-gestion" class="project-link" target="_blank">GitHub</a>
+                            <a href="https://github.com/becareli/django-saas-gestion" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://arquitectochile.com/" target="_blank"><i class="fas fa-globe"></i> Sitio</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Proyecto 3 -->
                 <div class="project-card">
                     <div class="project-image">🌐</div>
                     <div class="project-content">
-                        <h3>Portafolio Web</h3>
-                        <p>Landing page responsiva alojada en GitHub Pages. Demuestra hosting, buenas prácticas de documentación y despliegue automático.</p>
+                        <h3>Portafolio Web Responsivo</h3>
+                        <p>Landing page moderna alojada en GitHub Pages con diseño responsive, animaciones suaves y navegación interactiva.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">GitHub Pages</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/becareli/mi-sitio-estatico" class="project-link" target="_blank">GitHub</a>
-                            <a href="https://becareli.github.io/mi-sitio-estatico/" class="project-link" target="_blank">Ver</a>
+                            <a href="https://github.com/becareli/mi-sitio-estatico" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://becareli.github.io/mi-sitio-estatico/" target="_blank"><i class="fas fa-arrow-right"></i> Demo</a>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://github.com/becareli/Portafolio" target="_blank" class="btn-primary">Ver Portafolio Completo →</a>
             </div>
         </div>
     </section>
 
-    <!-- Stack Section -->
+    <!-- STACK SECTION -->
     <section class="stack" id="stack">
         <div class="container">
             <h2 class="section-title">Mi Stack Tecnológico</h2>
-            <p class="section-subtitle">Herramientas y tecnologías que domino</p>
+            <p class="section-subtitle">Herramientas y tecnologías que domino profesionalmente</p>
             
             <div class="stack-grid">
                 <div class="stack-category">
                     <h3>🐍 Backend</h3>
+                    <ul>
+                        <li>Python 3.x</li>
+                        <li>Django Framework</li>
+                        <li>Django ORM</li>
+                        <li>Class-Based Views</li>
+                        <li>Django Admin</li>
+                        <li>Migraciones</li>
+                        <li>Autenticación</li>
+                        <li>Middleware</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category">
+                    <h3>🎨 Frontend</h3>
+                    <ul>
+                        <li>HTML5 Semántico</li>
+                        <li>CSS3 Avanzado</li>
+                        <li>Flexbox & Grid</li>
+                        <li>JavaScript ES6+</li>
+                        <li>DOM Manipulation</li>
+                        <li>Responsive Design</li>
+                        <li>Animaciones CSS</li>
+                        <li>Bootstrap</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category">
+                    <h3>💾 Bases de Datos</h3>
+                    <ul>
+                        <li>SQLite</li>
+                        <li>PostgreSQL</li>
+                        <li>Relaciones Complejas</li>
+                        <li>ForeignKey & ManyToMany</li>
+                        <li>Índices</li>
+                        <li>Transacciones</li>
+                        <li>Raw SQL</li>
+                        <li>Querys Complejas</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category">
+                    <h3>🚀 DevOps & Tools</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>GitHub Pages</li>
+                        <li>Deployment</li>
+                        <li>VS Code</li>
+                        <li>Terminal & CLI</li>
+                        <li>Entornos Virtuales</li>
+                        <li>Package Managers</li>
+                        <li>Control de Versiones</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category">
+                    <h3>🛒 E-commerce & Avanzado</h3>
+                    <ul>
+                        <li>Carrito de Compras</li>
+                        <li>Gestión de Órdenes</li>
+                        <li>Control de Inventario</li>
+                        <li>Cálculos Dinámicos</li>
+                        <li>Sesiones</li>
+                        <li>Validaciones</li>
+                        <li>UX/UI Profesional</li>
+                        <li>Accesibilidad</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category">
+                    <h3>🏗️ Arquitectura & Patrones</h3>
+                    <ul>
+                        <li>Patrón MVC</li>
+                        <li>CRUD Completo</li>
+                        <li>Separación de Responsabilidades</li>
+                        <li>DRY Principle</li>
+                        <li>SOLID Principles</li>
+                        <li>Buenas Prácticas</li>
+                        <li>Código Limpio</li>
+                        <li>Documentación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>¿Hablamos?</h2>
+            <p>Conecta conmigo a través de LinkedIn, revisa mis proyectos en GitHub o descarga mi CV</p>
+            
+            <div class="contact-links">
+                <a href="https://drive.google.com/file/d/1x0pZLWGLtadGafnBaIxtQ-isFKNkUX_0/view?usp=sharing" target="_blank" class="contact-link">
+                    <i class="fas fa-file-pdf"></i> Descargar CV
+                </a>
+                <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/becareli" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:contacto@skillnest.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/becareli" target="_blank" class="social-icon" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.youtube.com/watch?v=WJW_24xIzAw" target="_blank" class="social-icon" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://arquitectochile.com/" target="_blank" class="social-icon" title="Sitio Web">
+                    <i class="fas fa-globe"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Patricio Becar Elissegaray. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">
+                Código abierto en <a href="https://github.com/becareli" target="_blank">GitHub</a> | 
+                Desarrollado con ❤️ | 
+                <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank">Conectar en LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
