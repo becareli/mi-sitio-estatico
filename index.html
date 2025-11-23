@@ -1,842 +1,346 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patricio Becar Elissegaray | Portafolio Full-Stack</title>
-    <meta name="description" content="Portafolio profesional de Patricio Becar - Arquitecto, Desarrollador Full-Stack especializado en Django, Python y soluciones empresariales.">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #1e40af;
-            --primary-light: #3b82f6;
-            --secondary: #0c7c59;
-            --accent: #0ea5e9;
-            --dark: #1f2937;
-            --text-light: #6b7280;
-            --light-bg: #f0f9ff;
-            --white: #ffffff;
-            --success: #10b981;
-            --gradient: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark);
-            background: var(--light-bg);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ===== NAVBAR ===== */
-        nav {
-            background: white;
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(30, 64, 175, 0.08);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-cta {
-            background: var(--gradient);
-            color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e8f9f5 100%);
-            padding: 5rem 2rem;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .hero-content .name-highlight {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid var(--primary);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-img {
-            width: 100%;
-            max-width: 350px;
-            aspect-ratio: 1;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(30, 64, 175, 0.25);
-            border: 3px solid var(--white);
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* ===== PROJECTS ===== */
-        .projects {
-            background: white;
-            padding: 6rem 2rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(30, 64, 175, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            border-top: 5px solid var(--primary);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.2);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 220px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-content h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .project-content p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            flex-grow: 1;
-            line-height: 1.7;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(15, 165, 233, 0.1));
-            color: var(--primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(30, 64, 175, 0.2);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-        }
-
-        .project-links a {
-            flex: 1;
-            padding: 0.8rem;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            font-size: 0.9rem;
-        }
-
-        .project-links a:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* ===== STACK SECTION ===== */
-        .stack {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e8f9f5 100%);
-            padding: 6rem 2rem;
-        }
-
-        .stack-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .stack-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            border-top: 4px solid var(--primary);
-            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.08);
-            transition: transform 0.3s;
-        }
-
-        .stack-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .stack-category h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .stack-category ul {
-            list-style: none;
-        }
-
-        .stack-category li {
-            padding: 0.8rem 0;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            font-size: 0.95rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .stack-category li:last-child {
-            border-bottom: none;
-        }
-
-        .stack-category li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: bold;
-            margin-right: 1rem;
-            font-size: 1.1rem;
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        .contact {
-            background: var(--gradient);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .contact p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .contact-link {
-            color: white;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            transition: transform 0.3s;
-            font-size: 1rem;
-        }
-
-        .contact-link:hover {
-            transform: scale(1.05);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .social-icon:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #111827;
-            color: #d1d5db;
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .project-links {
-                flex-direction: column;
-            }
-
-            .project-links a {
-                width: 100%;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- NAVBAR -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Becareli IA Services</a>
-            <ul class="nav-links">
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#stack">Stack</a></li>
-                <li><a href="https://drive.google.com/file/d/1x0pZLWGLtadGafnBaIxtQ-isFKNkUX_0/view?usp=sharing" target="_blank">Curriculum Vitae</a></li>
-            </ul>
-            <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank" class="nav-cta">
-                <i class="fab fa-linkedin"></i> Conectar
-            </a>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Hola, soy <span class="name-highlight">Patricio Becar<br>Elissegaray</span></h1>
-                <p><strong>Arquitecto, Magíster en Gestión y Desarrollador Full-Stack especializado en Django</strong></p>
-                <p>Fusionando diseño, gestión y tecnología para crear soluciones digitales innovadoras y escalables</p>
-                
-                <div class="hero-buttons">
-                    <a href="#proyectos" class="btn-primary">
-                        <i class="fas fa-arrow-right"></i> Ver Proyectos
-                    </a>
-                    <a href="https://drive.google.com/file/d/1x0pZLWGLtadGafnBaIxtQ-isFKNkUX_0/view?usp=sharing" target="_blank" class="btn-secondary">
-                        <i class="fas fa-file-pdf"></i> Descargar CV
-                    </a>
-                </div>
-
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Proyectos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Documentados</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Tecnologías</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-image">
-                <div class="profile-img">
-                    <img src="https://avatars.githubusercontent.com/becareli" alt="Patricio Becar Elissegaray" onerror="this.src='https://ui-avatars.com/api/?name=Patricio+Becar&size=400&background=1e40af&color=fff&bold=true'" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="projects" id="proyectos">
-        <div class="container">
-            <h2 class="section-title">Mis Proyectos Destacados</h2>
-            <p class="section-subtitle">Soluciones completas que demuestran mis habilidades en desarrollo full-stack</p>
-            
-            <div class="projects-grid">
-                <!-- Proyecto 1 -->
-                <div class="project-card">
-                    <div class="project-image">🛒</div>
-                    <div class="project-content">
-                        <h3>Tienda de Buceo - E-commerce</h3>
-                        <p>Plataforma e-commerce completa con catálogo de productos, carrito dinámico, gestión de órdenes y panel administrativo personalizado.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">SQLite</span>
-                            <span class="tech-tag">CRUD</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/becareli/Sistema-de-Gestion-de-Productos-Django" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://www.youtube.com/watch?v=WJW_24xIzAw" target="_blank"><i class="fab fa-youtube"></i> Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 2 -->
-                <div class="project-card">
-                    <div class="project-image">⚙️</div>
-                    <div class="project-content">
-                        <h3>Django-SaaS-Gestión</h3>
-                        <p>Sistema empresarial con arquitectura MVC avanzada, relaciones complejas, validaciones robustas y admin personalizado.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">MVC</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/becareli/django-saas-gestion" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://arquitectochile.com/" target="_blank"><i class="fas fa-globe"></i> Sitio</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3 -->
-                <div class="project-card">
-                    <div class="project-image">🌐</div>
-                    <div class="project-content">
-                        <h3>Portafolio Web Responsivo</h3>
-                        <p>Landing page moderna alojada en GitHub Pages con diseño responsive, animaciones suaves y navegación interactiva.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/becareli/mi-sitio-estatico" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="https://becareli.github.io/mi-sitio-estatico/" target="_blank"><i class="fas fa-arrow-right"></i> Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STACK SECTION -->
-    <section class="stack" id="stack">
-        <div class="container">
-            <h2 class="section-title">Mi Stack Tecnológico</h2>
-            <p class="section-subtitle">Herramientas y tecnologías que domino profesionalmente</p>
-            
-            <div class="stack-grid">
-                <div class="stack-category">
-                    <h3>🐍 Backend</h3>
-                    <ul>
-                        <li>Python 3.x</li>
-                        <li>Django Framework</li>
-                        <li>Django ORM</li>
-                        <li>Class-Based Views</li>
-                        <li>Django Admin</li>
-                        <li>Migraciones</li>
-                        <li>Autenticación</li>
-                        <li>Middleware</li>
-                    </ul>
-                </div>
-
-                <div class="stack-category">
-                    <h3>🎨 Frontend</h3>
-                    <ul>
-                        <li>HTML5 Semántico</li>
-                        <li>CSS3 Avanzado</li>
-                        <li>Flexbox & Grid</li>
-                        <li>JavaScript ES6+</li>
-                        <li>DOM Manipulation</li>
-                        <li>Responsive Design</li>
-                        <li>Animaciones CSS</li>
-                        <li>Bootstrap</li>
-                    </ul>
-                </div>
-
-                <div class="stack-category">
-                    <h3>💾 Bases de Datos</h3>
-                    <ul>
-                        <li>SQLite</li>
-                        <li>PostgreSQL</li>
-                        <li>Relaciones Complejas</li>
-                        <li>ForeignKey & ManyToMany</li>
-                        <li>Índices</li>
-                        <li>Transacciones</li>
-                        <li>Raw SQL</li>
-                        <li>Querys Complejas</li>
-                    </ul>
-                </div>
-
-                <div class="stack-category">
-                    <h3>🚀 DevOps & Tools</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>GitHub Pages</li>
-                        <li>Deployment</li>
-                        <li>VS Code</li>
-                        <li>Terminal & CLI</li>
-                        <li>Entornos Virtuales</li>
-                        <li>Package Managers</li>
-                        <li>Control de Versiones</li>
-                    </ul>
-                </div>
-
-                <div class="stack-category">
-                    <h3>🛒 E-commerce & Avanzado</h3>
-                    <ul>
-                        <li>Carrito de Compras</li>
-                        <li>Gestión de Órdenes</li>
-                        <li>Control de Inventario</li>
-                        <li>Cálculos Dinámicos</li>
-                        <li>Sesiones</li>
-                        <li>Validaciones</li>
-                        <li>UX/UI Profesional</li>
-                        <li>Accesibilidad</li>
-                    </ul>
-                </div>
-
-                <div class="stack-category">
-                    <h3>🏗️ Arquitectura & Patrones</h3>
-                    <ul>
-                        <li>Patrón MVC</li>
-                        <li>CRUD Completo</li>
-                        <li>Separación de Responsabilidades</li>
-                        <li>DRY Principle</li>
-                        <li>SOLID Principles</li>
-                        <li>Buenas Prácticas</li>
-                        <li>Código Limpio</li>
-                        <li>Documentación</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <h2>¿Hablamos?</h2>
-            <p>Conecta conmigo a través de LinkedIn, revisa mis proyectos en GitHub o descarga mi CV</p>
-            
-            <div class="contact-links">
-                <a href="https://drive.google.com/file/d/1x0pZLWGLtadGafnBaIxtQ-isFKNkUX_0/view?usp=sharing" target="_blank" class="contact-link">
-                    <i class="fas fa-file-pdf"></i> Descargar CV
-                </a>
-                <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank" class="contact-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://github.com/becareli" target="_blank" class="contact-link">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="mailto:contacto@skillnest.com" class="contact-link">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-            </div>
-
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank" class="social-icon" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/becareli" target="_blank" class="social-icon" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.youtube.com/watch?v=WJW_24xIzAw" target="_blank" class="social-icon" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://arquitectochile.com/" target="_blank" class="social-icon" title="Sitio Web">
-                    <i class="fas fa-globe"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Patricio Becar Elissegaray. Todos los derechos reservados.</p>
-            <p style="margin-top: 0.5rem; opacity: 0.8;">
-                Código abierto en <a href="https://github.com/becareli" target="_blank">GitHub</a> | 
-                Desarrollado con ❤️ | 
-                <a href="https://www.linkedin.com/in/patriciobecar/" target="_blank">Conectar en LinkedIn</a>
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scroll para navegación
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-    </script>
-
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricio Becar Elissegaray | Portafolio Full-Stack</title>
+    <meta name="description" content="Portafolio profesional de Patricio Becar - Arquitecto, Desarrollador Full-Stack especializado en Django, Python y soluciones empresariales.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #0c7c59;
+            --accent: #0ea5e9;
+            --dark: #1f2937;
+            --text-light: #6b7280;
+            --light-bg: #f0f9ff;
+            --white: #ffffff;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            background: white;
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(30, 64, 175, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e8f9f5 100%);
+            padding: 5rem 2rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-content .name-highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(30, 64, 175, 0.25);
+            border: 3px solid var(--white);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects {
+            background: white;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30, 64, 175, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid var(--primary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(15, 165, 233, 0.1));
+            color: var(--primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid
